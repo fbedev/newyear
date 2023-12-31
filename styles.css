@@ -1,0 +1,85 @@
+body {
+    font-family: 'Raleway', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #282c34;
+    color: #61dafb;
+  }
+  
+  #bigTitle {
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+  
+  #countdown {
+    font-size: 3em;
+    text-align: center;
+    animation: scale 1s infinite alternate;
+    margin-bottom: 20px;
+  }
+  
+  #NewYearText {
+    position: absolute;
+    font-size: 2em;
+    animation: float 5s infinite;
+    top: 20px;
+  }
+  
+  button {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1em;
+    padding: 10px 20px;
+    margin-top: 20px;
+    cursor: pointer;
+    background-color: #61dafb;
+    color: #282c34;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #45aaf2;
+  }
+  
+  #goalsList {
+    text-align: left;
+    margin-top: 20px;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  li {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+  }
+  
+  @keyframes scale {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(1.1);
+    }
+  }
+  
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+  
+  /* Hide the goalsList initially */
+  .hidden {
+    display: none;
+  }
