@@ -19,6 +19,7 @@ function updateCountdown() {
     if (distance < 0) {
       clearInterval(countdownInterval);
       document.getElementById("countdown").innerHTML = "Happy New Year!";
+      showAfterCountdown(); // Show after countdown message
     }
   }
   
@@ -34,3 +35,64 @@ function updateCountdown() {
     const goalsList = document.getElementById("goalsList");
     goalsList.classList.toggle("hidden");
   }
+  
+  // Function to show the after countdown message
+  function showAfterCountdown() {
+    const afterCountdown = document.getElementById("afterCountdown");
+    afterCountdown.style.display = "block";
+  }
+  
+  // Function to update the total users online
+  function updateTotalUsers(count) {
+    const totalUsersSpan = document.getElementById("totalUsers");
+    totalUsersSpan.innerText = count;
+  }
+  
+  // Simulate user online count (replace this with your actual user tracking logic)
+  let totalUsersOnline = 0;
+  
+  // Update total users every 5 seconds
+  setInterval(function() {
+    totalUsersOnline++;
+    updateTotalUsers(totalUsersOnline);
+  }, 5000);
+  function sendWebhook(webhookUrl, username) {
+    // Build the embed message
+    const embed = {
+      title: 'New User Login',
+      description: 'A user has logged into the website:',
+      fields: [
+        {
+          name: 'Username',
+          value: username
+        }
+      ],
+      color: 65280 // Green color
+    };
+  
+    // Create the payload data
+    const data = {
+      embeds: [embed]
+    };
+  
+    // Send the webhook request
+    fetch(webhookUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+    .then(response => {
+      console.log('Webhook sent successfully:', response.status);
+    })
+    .catch(error => {
+      console.error('Error sending webhook:', error.message);
+    });
+  }
+  
+  // Example usage (when user logs in)
+  const webhookUrl = 'https://discord.com/api/webhooks/1191037023411257445/hbtV_VNKIYMemBXOkgeBa3gFLHmE7brIF-VcKVzyU81h9c2hKZfYvcPO9dPenaztln1O';
+  const username = 'random guy';
+  
+  sendWebhook(webhookUrl, username);

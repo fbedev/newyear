@@ -22,6 +22,7 @@ body {
     margin-bottom: 20px;
   }
   
+
   #NewYearText {
     position: absolute;
     font-size: 2em;
@@ -59,6 +60,24 @@ body {
   li {
     font-size: 1.2em;
     margin-bottom: 10px;
+  }
+  
+  #afterCountdown {
+    display: none;
+    text-align: center;
+  }
+  
+  #afterCountdown h1 {
+    font-size: 2em;
+    color: #ff9900; /* Orange color for emphasis */
+  }
+  
+  #afterCountdown p {
+    font-size: 1.2em;
+  }
+  
+  #userOnline {
+    margin-top: 20px;
   }
   
   @keyframes scale {
